@@ -12,13 +12,41 @@ struct CharacterRowView: View {
     var character: Character
     
     var body: some View {
-        VStack{
-            Text(character.name ?? "")
+        ZStack{
+            //TODO : See how to change to a placeholder if the url dosnt contain an image
+            AsyncImage(url: URL(string: character.image ?? "" ) ) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(20)
+            } placeholder: {
+                Image(decorative: "MarvelLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(20)
+            }
             
+            //Add the black coverage
+            GeometryReader{ geometry in
+                Color.black.opacity(0.5)
+                    .cornerRadius(20)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+            }
+            
+            
+            
+            VStack{
+                HStack{
+                    Text(character.name ?? "No name")
+                        .font(.title)
+                        .foregroundStyle(.white)
+                        .bold()
+                }
+            }
         }
     }
 }
 
 #Preview {
-    CharacterRowView(character: Character(id: 1234, name: "CharacterTest", description: "TestDescription", image: "https://i.etsystatic.com/5249931/r/il/79ce32/3029448289/il_570xN.3029448289_r1py.jpg"))
+    CharacterRowView(character: Character(id: 1234, name: "CharacterTest", description: "TestDescription", image: "http://i.annihil.us/u/prod/marvel/i/mg/5/a0/538615ca33ab0.jpg"))
 }

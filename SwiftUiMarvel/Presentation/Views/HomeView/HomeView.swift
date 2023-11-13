@@ -13,19 +13,30 @@ struct HomeView: View {
     
     
     var body: some View {
-        ScrollView {
-                    LazyVStack {
-                        ForEach(homeViewModel.characters, id: \.self) { item in
-                            Text(item.name ?? "No name")
-                                .onAppear {
-                                    if item == homeViewModel.characters.last {
-                                        // Load more items when the last item is about to appear
-                                        homeViewModel.getCharacters()
-                                    }
+        ZStack {
+            Image(decorative: "MarvelBG")
+                .resizable()
+                .ignoresSafeArea()
+            
+            ScrollView {
+                LazyVStack {
+                    ForEach(homeViewModel.characters, id: \.self) { item in
+                        CharacterRowView(character: item)
+                            .padding()
+                            .frame(width: 300)
+                            .onAppear {
+                                print(item)
+                                if item == homeViewModel.characters.last {
+                                    // Load more items when the last item is about to appear
+                                    homeViewModel.getCharacters()
                                 }
-                        }
+                            }
                     }
                 }
+            }
+        }
+        
+        
     }
 }
 

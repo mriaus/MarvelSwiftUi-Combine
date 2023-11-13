@@ -70,7 +70,7 @@ struct Thumbnail: Codable {
 
     enum CodingKeys: String, CodingKey {
         case path
-        case thumbnailExtension
+        case thumbnailExtension = "extension"
     }
 }
 

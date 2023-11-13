@@ -48,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		8D3413912AFD65F100FF3223 /* CharacterRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRowView.swift; sourceTree = "<group>"; };
+		8DD30AD42B02A3C900F8FC0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8DE1815B2AFBA191000FE9DC /* SwiftUiMarvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUiMarvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE1815E2AFBA191000FE9DC /* SwiftUiMarvelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiMarvelApp.swift; sourceTree = "<group>"; };
 		8DE181602AFBA191000FE9DC /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 		8DE1815D2AFBA191000FE9DC /* SwiftUiMarvel */ = {
 			isa = PBXGroup;
 			children = (
+				8DD30AD42B02A3C900F8FC0B /* Info.plist */,
 				8DE1818F2AFBA239000FE9DC /* Presentation */,
 				8DE1818E2AFBA1E5000FE9DC /* Domain */,
 				8DE181902AFBA247000FE9DC /* Data */,
@@ -588,6 +590,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUiMarvel/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -626,6 +629,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUiMarvel/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

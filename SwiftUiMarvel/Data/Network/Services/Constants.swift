@@ -22,6 +22,6 @@ enum endpoints: String {
     case characters = "/v1/public/characters"
     case series = "/v1/public/series"
 }
-let TS = ""
-let APIKEY = ""
-let HASH = ""
+let TS = "1"
+let APIKEY = "96933f07b708fd5431b0c47deed944d5"
+let HASH = "35a343b7c477bef9a0bf5eb933b523b2"
