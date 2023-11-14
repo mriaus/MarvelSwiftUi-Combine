@@ -40,11 +40,6 @@ final class HomeViewModel: ObservableObject {
                         }
                 }
                 .store(in: &suscriptors)
-        }else {
-            print("\(totalCharacters) ----- \(characters.count)")
-            print("Ya no hay mas personajes")
         }
-
     }
-    
 }

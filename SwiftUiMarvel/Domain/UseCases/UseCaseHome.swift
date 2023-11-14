@@ -9,14 +9,16 @@ import Foundation
 import Combine
 final class UseCaseHome: UseCaseHomeProtocol {
     
-    let charactersService = CharactersService()
     @Published var characters: [Character] = []
     private var cancellables = Set<AnyCancellable>()
     
     
     func loadCharacters(limit: String?, offset: String?) -> AnyPublisher<CharacterDTO, Error> {
-        return charactersService.getAllCharacters(limit: limit, offset: offset)
+        return CharactersService().getAllCharacters(limit: limit, offset: offset)
     }
     
+    func loadCharactersFake(limit: String?, offset: String?) -> AnyPublisher<CharacterDTO, Error> {
+        return CharactersFakeService().getAllCharacters(limit: limit, offset: offset)
+    }
     
 }

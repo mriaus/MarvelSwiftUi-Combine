@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8D3413922AFD65F100FF3223 /* CharacterRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3413912AFD65F100FF3223 /* CharacterRowView.swift */; };
+		8DBF33CF2B03DA89002A56C2 /* CharacterModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF33CE2B03DA89002A56C2 /* CharacterModelTest.swift */; };
+		8DBF33D32B03DE5C002A56C2 /* Extension+URLResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF33D22B03DE5C002A56C2 /* Extension+URLResponseTest.swift */; };
+		8DBF33DA2B03E089002A56C2 /* UseCaseHomeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF33D92B03E089002A56C2 /* UseCaseHomeTest.swift */; };
 		8DE1815F2AFBA191000FE9DC /* SwiftUiMarvelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE1815E2AFBA191000FE9DC /* SwiftUiMarvelApp.swift */; };
 		8DE181612AFBA191000FE9DC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE181602AFBA191000FE9DC /* Persistence.swift */; };
 		8DE181642AFBA191000FE9DC /* SwiftUiMarvel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8DE181622AFBA191000FE9DC /* SwiftUiMarvel.xcdatamodeld */; };
@@ -48,6 +51,9 @@
 
 /* Begin PBXFileReference section */
 		8D3413912AFD65F100FF3223 /* CharacterRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRowView.swift; sourceTree = "<group>"; };
+		8DBF33CE2B03DA89002A56C2 /* CharacterModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelTest.swift; sourceTree = "<group>"; };
+		8DBF33D22B03DE5C002A56C2 /* Extension+URLResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+URLResponseTest.swift"; sourceTree = "<group>"; };
+		8DBF33D92B03E089002A56C2 /* UseCaseHomeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseHomeTest.swift; sourceTree = "<group>"; };
 		8DD30AD42B02A3C900F8FC0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8DE1815B2AFBA191000FE9DC /* SwiftUiMarvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUiMarvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DE1815E2AFBA191000FE9DC /* SwiftUiMarvelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiMarvelApp.swift; sourceTree = "<group>"; };
@@ -108,6 +114,63 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
+		8DBF33CD2B03DA54002A56C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF33CE2B03DA89002A56C2 /* CharacterModelTest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8DBF33D02B03DACA002A56C2 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF33D72B03E064002A56C2 /* UseCases */,
+				8DBF33D12B03DE3D002A56C2 /* Extensions */,
+				8DBF33CD2B03DA54002A56C2 /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		8DBF33D12B03DE3D002A56C2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF33D22B03DE5C002A56C2 /* Extension+URLResponseTest.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8DBF33D42B03DF10002A56C2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF33D52B03DF1C002A56C2 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8DBF33D52B03DF1C002A56C2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF33D62B03DF25002A56C2 /* Services */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8DBF33D62B03DF25002A56C2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8DBF33D72B03E064002A56C2 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				8DBF33D92B03E089002A56C2 /* UseCaseHomeTest.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		8DE181522AFBA191000FE9DC = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +219,8 @@
 		8DE181742AFBA193000FE9DC /* SwiftUiMarvelTests */ = {
 			isa = PBXGroup;
 			children = (
+				8DBF33D42B03DF10002A56C2 /* Data */,
+				8DBF33D02B03DACA002A56C2 /* Domain */,
 				8DE181752AFBA193000FE9DC /* SwiftUiMarvelTests.swift */,
 			);
 			path = SwiftUiMarvelTests;
@@ -435,6 +500,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DE181762AFBA193000FE9DC /* SwiftUiMarvelTests.swift in Sources */,
+				8DBF33CF2B03DA89002A56C2 /* CharacterModelTest.swift in Sources */,
+				8DBF33DA2B03E089002A56C2 /* UseCaseHomeTest.swift in Sources */,
+				8DBF33D32B03DE5C002A56C2 /* Extension+URLResponseTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
