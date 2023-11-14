@@ -11,37 +11,42 @@ struct CharacterRowView: View {
     
     var character: Character
     
+    
     var body: some View {
-        ZStack{
-            //TODO : See how to change to a placeholder if the url dosnt contain an image
-            AsyncImage(url: URL(string: character.image ?? "" ) ) { image in
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(20)
-            } placeholder: {
-                Image(decorative: "MarvelLogo")
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(20)
-            }
-            
-            //Add the black coverage
-            GeometryReader{ geometry in
+        
+        ZStack {
+            //Get the info of the parent in this case width and height
+            GeometryReader { geometry in
+                
+                AsyncImage(url: URL(string: character.image ?? "")) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .clipped()
+                        .cornerRadius(20)
+                } placeholder: {
+                    Image(decorative: "MarvelLogo")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .clipped()
+                        .cornerRadius(20)
+                }
+                
                 Color.black.opacity(0.5)
                     .cornerRadius(20)
                     .frame(width: geometry.size.width, height: geometry.size.height)
-            }
-            
-            
-            
-            VStack{
-                HStack{
-                    Text(character.name ?? "No name")
-                        .font(.title)
-                        .foregroundStyle(.white)
-                        .bold()
-                }
+                    .overlay(
+                        VStack {
+                            HStack {
+                                Text(character.name ?? "No name")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                                    .bold()
+                            }
+                        }
+                    )
             }
         }
     }

@@ -22,8 +22,8 @@ struct HomeView: View {
                 LazyVStack {
                     ForEach(homeViewModel.characters, id: \.self) { item in
                         CharacterRowView(character: item)
-                            .padding()
-                            .frame(width: 300)
+                            .frame(width: 300, height: 300)
+                            .padding(.top, 30)
                             .onAppear {
                                 print(item)
                                 if item == homeViewModel.characters.last {
