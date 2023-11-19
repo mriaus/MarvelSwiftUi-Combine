@@ -6,7 +6,8 @@ This app works too with appleWatch (A bit WIP) and macOS (A bit WIP)
 
 This app has been built using swiftUI + Combine
 
-I have played too with testing and i want to implement too a statusBox to control the errors better and a filter list
+I have played too with testing 
+I want to implement too a statusBox to control the errors better and a filter list
 
 For use the app you need to put in Data/Network/Services/Constants:
 The ts value
