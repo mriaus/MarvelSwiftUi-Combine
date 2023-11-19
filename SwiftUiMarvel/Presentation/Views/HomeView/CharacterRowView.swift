@@ -24,23 +24,36 @@ struct CharacterRowView: View {
                         .scaledToFill()
                         .frame(width: geometry.size.width, height: geometry.size.height)
                         .clipped()
+#if os(watchOS)
+                        .cornerRadius(50)
+#else
                         .cornerRadius(20)
+#endif
                 } placeholder: {
                     Image(decorative: "MarvelLogo")
                         .resizable()
                         .scaledToFill()
                         .frame(width: geometry.size.width, height: geometry.size.height)
                         .clipped()
+#if os(watchOS)
+                        .cornerRadius(50)
+#else
                         .cornerRadius(20)
+#endif
                 }
                 
                 Color.black.opacity(0.5)
+#if os(watchOS)
+                    .cornerRadius(50)
+#else
                     .cornerRadius(20)
+                
+#endif
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .overlay(
                         VStack {
                             HStack {
-                                Text(character.name ?? "No name")
+                                Text(character.name ?? "Desconocido")
                                     .font(.title)
                                     .foregroundColor(.white)
                                     .bold()

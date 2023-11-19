@@ -19,9 +19,13 @@ struct HomeView: View {
                 LazyVStack {
                         ForEach(homeViewModel.characters, id: \.self) { item in
                             NavigationLink(destination: SeriesView(useCase: UseCaseSeriesList(), selectedCharacter: String(item.id))){
-                                
+//                                TODO: See how to remove the grey circle in watchOS
                                 CharacterRowView(character: item)
+                                #if os(watchOS)
+                                    .frame(width: 200, height: 200)
+                                #else
                                     .frame(width: 300, height: 300)
+                                #endif
                                     .padding(.top, 30)
                                     .onAppear {
                                         print(item)

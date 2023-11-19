@@ -39,27 +39,32 @@ struct SerieRowView: View {
                 Color.black.opacity(0.5)
                     .overlay(
                         VStack {
-                                Text(serie.name ?? "No name")
-                                    .font(.title)
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .padding(.top, 64)
-                                Spacer()
-                            
+                            Text(serie.name ?? "Desconocido")
+#if os(watchOS)
+                                .font(.headline)
+#else
+                                .font(.title)
+#endif
+                                .foregroundColor(.white)
+                                .bold()
+                                .padding(.top, 64)
+#if os(iOS) || os(macOS)
+                            Spacer()
+
                             Text(serie.description ?? "")
-                                .font(.subheadline)
+                                .font(.headline)
                                 .foregroundColor(.white)
                                 .padding(.top, 32)
-
+                            #endif
                             
                         }
                             .padding(.vertical, 24)
                             .padding(.horizontal, 24)
-
+                        
                     )
                     .cornerRadius(20)
                     .frame(width: geometry.size.width, height: geometry.size.height)
-
+                
             }
         }
     }

@@ -19,14 +19,18 @@ struct SeriesView: View {
     var body: some View {
         VStack{
             if(seriesViewModel.isLoading){
-                ProgressView("Loading")
+                ProgressView("Cargando...")
                     .progressViewStyle(CircularProgressViewStyle())
             }else{
                 ScrollView{
                     LazyVStack {
                         ForEach(seriesViewModel.series, id: \.self) { item in
                             SerieRowView(serie: item)
-                                .frame(width: 300, height: 500)
+#if os(watchOS)
+    .frame(width: 150, height: 200)
+#else
+    .frame(width: 300, height: 500)
+#endif
                         }
                     }
                 }
