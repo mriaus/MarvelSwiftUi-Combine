@@ -6,30 +6,37 @@
 //
 
 import XCTest
-
+import Combine
+@testable import SwiftUiMarvel
 final class UseCaseSeriesTest: XCTestCase {
-
+    @Published var series: [Serie] = []
+    var suscriptors = Set<AnyCancellable>()
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        series = []
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testUseCaseHomeGetSeriesByCharacter() throws {
+        let useCase = UseCaseSeriesList()
+        
+        useCase.loadSeriesFake(offset: "0", character: "hulk")
+            .sink { completion in
+                //Completion
+                print("Completion vm -> \(completion)")
+            } receiveValue: {[weak self] characterDTO in
+                    if let results = characterDTO.data?.results {
+                        results.forEach{
+                            self?.series.append( Serie(id: $0.id!, name: $0.title, description: $0.description, image: "\(String(describing: $0.thumbnail?.path ?? "" )).\($0.thumbnail?.thumbnailExtension?.rawValue ?? "")", startYear: $0.startYear, endYear: $0.endYear, rating: ""))
+                        }
+                    }else{
+                        //TODO: Do something
+                        self?.series = []
+                    }
+            }
+            .store(in: &suscriptors)
+        
+        XCTAssertEqual(series.count, 3)
+        XCTAssertNotNil(series)
     }
 
 }

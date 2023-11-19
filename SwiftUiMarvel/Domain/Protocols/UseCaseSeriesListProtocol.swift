@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import Combine
+
+protocol UseCaseSeriesListProtocol {
+    func loadSeries(offset: String?, character: String?) -> AnyPublisher<SerieDTO, Error>
+}
+

@@ -27,9 +27,9 @@ final class CharacterModelTest: XCTestCase {
     }
     
     func testModelWithNilsWorks() throws {
-        let model = Character(id: nil, name: nil, description: nil, image: nil)
+        let model = Character(id: 1, name: nil, description: nil, image: nil)
         
-        XCTAssertEqual(model.id, nil)
+        XCTAssertNotEqual(model.id, nil)
         XCTAssertEqual(model.name, nil)
         XCTAssertEqual(model.description, nil)
         XCTAssertEqual(model.image, nil)

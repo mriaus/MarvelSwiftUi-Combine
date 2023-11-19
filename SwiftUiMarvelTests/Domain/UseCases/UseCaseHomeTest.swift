@@ -27,7 +27,7 @@ final class UseCaseHomeTest: XCTestCase {
             } receiveValue: {[weak self] characterDTO in
                     if let results = characterDTO.data?.results {
                         results.forEach{
-                            self?.characters.append( Character(id: $0.id, name: $0.name, description: $0.description, image: "\(String(describing: $0.thumbnail?.path ?? "" )).\($0.thumbnail?.thumbnailExtension?.rawValue ?? "")"))
+                            self?.characters.append( Character(id: $0.id!, name: $0.name, description: $0.description, image: "\(String(describing: $0.thumbnail?.path ?? "" )).\($0.thumbnail?.thumbnailExtension?.rawValue ?? "")"))
                         }
                     }else{
                         //TODO: Do something

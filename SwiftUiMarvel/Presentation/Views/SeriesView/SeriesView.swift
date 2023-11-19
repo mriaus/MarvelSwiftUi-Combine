@@ -8,11 +8,37 @@
 import SwiftUI
 
 struct SeriesView: View {
+    let selectedCharacter: String
+    @ObservedObject var seriesViewModel: SeriesViewModel
+    
+    init(useCase: UseCaseSeriesListProtocol ,selectedCharacter: String) {
+        self.selectedCharacter = selectedCharacter
+        self.seriesViewModel = SeriesViewModel(useCase: useCase, selectedCharacter: selectedCharacter)
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            if(seriesViewModel.isLoading){
+                ProgressView("Loading")
+                    .progressViewStyle(CircularProgressViewStyle())
+            }else{
+                ScrollView{
+                    LazyVStack {
+                        ForEach(seriesViewModel.series, id: \.self) { item in
+                            SerieRowView(serie: item)
+                                .frame(width: 300, height: 500)
+                        }
+                    }
+                }
+                
+            }
+        }
+        .onAppear{
+            seriesViewModel.getSeriesByCharacter(offset: "0", character: selectedCharacter)
+        }
     }
 }
 
 #Preview {
-    SeriesView()
+    SeriesView(useCase:UseCaseSeriesList(), selectedCharacter: "1009694")
 }

@@ -6,30 +6,39 @@
 //
 
 import XCTest
+@testable import SwiftUiMarvel
 
 final class SerieModelTest: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testModelWithAllPropertiesNotNill() throws {
+        let model = Serie(id: 12, name: "Test", description: "Desc", image: "Image", startYear: 2,endYear: 4,rating: "")
+        
+        XCTAssertNotNil(model, "SerieIsNotNil")
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testModelWithAllPorpertiesThePropertiesDontChange() throws {
+        let model = Serie(id: 12, name: "Test", description: "Desc", image: "Image", startYear: 2,endYear: 4,rating: "rating")
+        
+        XCTAssertEqual(model.id, 12)
+        XCTAssertEqual(model.name, "Test")
+        XCTAssertEqual(model.description, "Desc")
+        XCTAssertEqual(model.image, "Image")
+        XCTAssertEqual(model.startYear, 2)
+        XCTAssertEqual(model.endYear, 4)
+        XCTAssertEqual(model.rating, "rating")
     }
+    
+    func testModelWithNilsWorks() throws {
+        let model = Serie(id: 12, name: nil, description: nil, image: nil, startYear: nil,endYear: nil,rating: nil)
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        XCTAssertNotNil(model, "SerieIsNotNil")
+        XCTAssertNotEqual(model.id, nil)
+        XCTAssertEqual(model.name, nil)
+        XCTAssertEqual(model.description, nil)
+        XCTAssertEqual(model.image, nil)
+        XCTAssertEqual(model.startYear, nil)
+        XCTAssertEqual(model.endYear, nil)
+        XCTAssertEqual(model.rating, nil)
     }
 
 }
