@@ -24,8 +24,13 @@ struct SeriesView: View {
             }else{
                 ScrollView{
                     LazyVStack {
-                        ForEach(seriesViewModel.series, id: \.self) { item in
-                            SerieRowView(serie: item)
+                        if(seriesViewModel.series.isEmpty){
+                            Text("No hay resultados")
+                        }else{
+                            ForEach(seriesViewModel.series, id: \.self) { item in
+                                SerieRowView(serie: item)
+                        }
+                       
 #if os(watchOS)
     .frame(width: 150, height: 200)
 #else
